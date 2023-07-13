@@ -470,7 +470,7 @@
                             android:layout_weight="1"
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
-                            android:tag="c57" />
+                            android:tag="c55" />
                         <ImageView
                             android:id="@+id/c65"
                             android:layout_width="0dp"
@@ -479,7 +479,7 @@
                             android:layout_weight="1"
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
-                            android:tag="c67" />
+                            android:tag="65" />
                         <ImageView
                             android:id="@+id/c75"
                             android:layout_width="0dp"
@@ -787,7 +787,7 @@
                             android:layout_weight="1"
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
-                            android:tag="c06" />
+                            android:tag="c61" />
                         <ImageView
                             android:id="@+id/c71"
                             android:layout_width="0dp"
@@ -821,7 +821,7 @@
                             android:layout_weight="1"
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
-                            android:tag="c12" />
+                            android:tag="c10" />
                         <ImageView
                             android:id="@+id/c20"
                             android:layout_width="0dp"
@@ -830,7 +830,7 @@
                             android:layout_weight="1"
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
-                            android:tag="c22" />
+                            android:tag="c20" />
                         <ImageView
                             android:id="@+id/c30"
                             android:layout_width="0dp"
@@ -839,7 +839,7 @@
                             android:layout_weight="1"
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
-                            android:tag="c32" />
+                            android:tag="c30" />
                         <ImageView
                             android:id="@+id/c40"
                             android:layout_width="0dp"
@@ -848,7 +848,7 @@
                             android:layout_weight="1"
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
-                            android:tag="c42" />
+                            android:tag="c40" />
                         <ImageView
                             android:id="@+id/c50"
                             android:layout_width="0dp"
@@ -857,7 +857,7 @@
                             android:layout_weight="1"
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
-                            android:tag="c52" />
+                            android:tag="c50" />
                         <ImageView
                             android:id="@+id/c60"
                             android:layout_width="0dp"
