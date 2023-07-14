@@ -81,7 +81,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="18dp"
-               android:orientation="horizontal"
+                android:orientation="horizontal"
 
                 android:weightSum="4">
 
@@ -230,7 +230,7 @@
                         android:layout_height="8dp"
                         android:background="@color/contrast_date"
 
-                        android:translationY="-8dp"/>
+                        android:translationY="-8dp" />
 
                     <TextView
                         android:id="@+id/tvOptionsData"
@@ -270,7 +270,8 @@
                             android:layout_weight="1"
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
-                         android:tag="c07" />
+                            android:src="@drawable/bojackhorse"
+                            android:tag="c07" />
 
                         <ImageView
                             android:id="@+id/c17"
@@ -281,6 +282,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c17" />
+
                         <ImageView
                             android:id="@+id/c27"
                             android:layout_width="0dp"
@@ -290,6 +292,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c27" />
+
                         <ImageView
                             android:id="@+id/c37"
                             android:layout_width="0dp"
@@ -299,6 +302,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c37" />
+
                         <ImageView
                             android:id="@+id/c47"
                             android:layout_width="0dp"
@@ -308,15 +312,17 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c47" />
+
                         <ImageView
-                        android:id="@+id/c57"
-                        android:layout_width="0dp"
-                        android:layout_height="43dp"
-                        android:layout_column="5"
-                        android:layout_weight="1"
-                        android:background="@color/black_cell"
-                        android:onClick="checkChellClick"
-                        android:tag="c57" />
+                            android:id="@+id/c57"
+                            android:layout_width="0dp"
+                            android:layout_height="43dp"
+                            android:layout_column="5"
+                            android:layout_weight="1"
+                            android:background="@color/black_cell"
+                            android:onClick="checkChellClick"
+                            android:tag="c57" />
+
                         <ImageView
                             android:id="@+id/c67"
                             android:layout_width="0dp"
@@ -326,6 +332,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c67" />
+
                         <ImageView
                             android:id="@+id/c77"
                             android:layout_width="0dp"
@@ -337,8 +344,8 @@
                             android:tag="c77" />
 
                     </TableRow>
-                    <TableRow android:weightSum="8">
 
+                    <TableRow android:weightSum="8">
 
 
                         <ImageView
@@ -350,6 +357,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c06" />
+
                         <ImageView
                             android:id="@+id/c16"
                             android:layout_width="0dp"
@@ -359,6 +367,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c16" />
+
                         <ImageView
                             android:id="@+id/c26"
                             android:layout_width="0dp"
@@ -368,6 +377,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c26" />
+
                         <ImageView
                             android:id="@+id/c36"
                             android:layout_width="0dp"
@@ -377,6 +387,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c36" />
+
                         <ImageView
                             android:id="@+id/c46"
                             android:layout_width="0dp"
@@ -386,6 +397,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c46" />
+
                         <ImageView
                             android:id="@+id/c56"
                             android:layout_width="0dp"
@@ -395,6 +407,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c56" />
+
                         <ImageView
                             android:id="@+id/c66"
                             android:layout_width="0dp"
@@ -404,6 +417,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c66" />
+
                         <ImageView
                             android:id="@+id/c76"
                             android:layout_width="0dp"
@@ -414,6 +428,7 @@
                             android:onClick="checkChellClick"
                             android:tag="c76" />
                     </TableRow>
+
                     <TableRow android:weightSum="8">
 
                         <ImageView
@@ -435,6 +450,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c15" />
+
                         <ImageView
                             android:id="@+id/c25"
                             android:layout_width="0dp"
@@ -444,6 +460,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c25" />
+
                         <ImageView
                             android:id="@+id/c35"
                             android:layout_width="0dp"
@@ -453,6 +470,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c35" />
+
                         <ImageView
                             android:id="@+id/c45"
                             android:layout_width="0dp"
@@ -462,6 +480,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c45" />
+
                         <ImageView
                             android:id="@+id/c55"
                             android:layout_width="0dp"
@@ -471,6 +490,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c55" />
+
                         <ImageView
                             android:id="@+id/c65"
                             android:layout_width="0dp"
@@ -480,6 +500,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="65" />
+
                         <ImageView
                             android:id="@+id/c75"
                             android:layout_width="0dp"
@@ -491,8 +512,8 @@
                             android:tag="c75" />
 
                     </TableRow>
-                    <TableRow android:weightSum="8">
 
+                    <TableRow android:weightSum="8">
 
 
                         <ImageView
@@ -504,6 +525,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c04" />
+
                         <ImageView
                             android:id="@+id/c14"
                             android:layout_width="0dp"
@@ -513,6 +535,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c14" />
+
                         <ImageView
                             android:id="@+id/c24"
                             android:layout_width="0dp"
@@ -522,6 +545,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c24" />
+
                         <ImageView
                             android:id="@+id/c34"
                             android:layout_width="0dp"
@@ -531,6 +555,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c34" />
+
                         <ImageView
                             android:id="@+id/c44"
                             android:layout_width="0dp"
@@ -540,6 +565,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c44" />
+
                         <ImageView
                             android:id="@+id/c54"
                             android:layout_width="0dp"
@@ -549,6 +575,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c54" />
+
                         <ImageView
                             android:id="@+id/c64"
                             android:layout_width="0dp"
@@ -558,6 +585,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c64" />
+
                         <ImageView
                             android:id="@+id/c74"
                             android:layout_width="0dp"
@@ -568,6 +596,7 @@
                             android:onClick="checkChellClick"
                             android:tag="c74" />
                     </TableRow>
+
                     <TableRow android:weightSum="8">
 
                         <ImageView
@@ -589,6 +618,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c13" />
+
                         <ImageView
                             android:id="@+id/c23"
                             android:layout_width="0dp"
@@ -598,6 +628,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c23" />
+
                         <ImageView
                             android:id="@+id/c33"
                             android:layout_width="0dp"
@@ -607,6 +638,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c33" />
+
                         <ImageView
                             android:id="@+id/c43"
                             android:layout_width="0dp"
@@ -616,6 +648,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c43" />
+
                         <ImageView
                             android:id="@+id/c53"
                             android:layout_width="0dp"
@@ -625,6 +658,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c53" />
+
                         <ImageView
                             android:id="@+id/c63"
                             android:layout_width="0dp"
@@ -634,6 +668,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c63" />
+
                         <ImageView
                             android:id="@+id/c73"
                             android:layout_width="0dp"
@@ -645,8 +680,8 @@
                             android:tag="c73" />
 
                     </TableRow>
-                    <TableRow android:weightSum="8">
 
+                    <TableRow android:weightSum="8">
 
 
                         <ImageView
@@ -658,6 +693,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c02" />
+
                         <ImageView
                             android:id="@+id/c12"
                             android:layout_width="0dp"
@@ -667,6 +703,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c12" />
+
                         <ImageView
                             android:id="@+id/c22"
                             android:layout_width="0dp"
@@ -676,6 +713,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c22" />
+
                         <ImageView
                             android:id="@+id/c32"
                             android:layout_width="0dp"
@@ -685,6 +723,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c32" />
+
                         <ImageView
                             android:id="@+id/c42"
                             android:layout_width="0dp"
@@ -694,6 +733,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c42" />
+
                         <ImageView
                             android:id="@+id/c52"
                             android:layout_width="0dp"
@@ -703,6 +743,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c52" />
+
                         <ImageView
                             android:id="@+id/c62"
                             android:layout_width="0dp"
@@ -712,6 +753,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c62" />
+
                         <ImageView
                             android:id="@+id/c72"
                             android:layout_width="0dp"
@@ -722,6 +764,7 @@
                             android:onClick="checkChellClick"
                             android:tag="c72" />
                     </TableRow>
+
                     <TableRow android:weightSum="8">
 
                         <ImageView
@@ -743,6 +786,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c11" />
+
                         <ImageView
                             android:id="@+id/c21"
                             android:layout_width="0dp"
@@ -752,6 +796,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c21" />
+
                         <ImageView
                             android:id="@+id/c31"
                             android:layout_width="0dp"
@@ -761,6 +806,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c31" />
+
                         <ImageView
                             android:id="@+id/c41"
                             android:layout_width="0dp"
@@ -770,6 +816,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c41" />
+
                         <ImageView
                             android:id="@+id/c51"
                             android:layout_width="0dp"
@@ -779,6 +826,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c51" />
+
                         <ImageView
                             android:id="@+id/c61"
                             android:layout_width="0dp"
@@ -788,6 +836,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c61" />
+
                         <ImageView
                             android:id="@+id/c71"
                             android:layout_width="0dp"
@@ -803,7 +852,6 @@
                     <TableRow android:weightSum="8">
 
 
-
                         <ImageView
                             android:id="@+id/c00"
                             android:layout_width="0dp"
@@ -813,6 +861,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c02" />
+
                         <ImageView
                             android:id="@+id/c10"
                             android:layout_width="0dp"
@@ -822,6 +871,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c10" />
+
                         <ImageView
                             android:id="@+id/c20"
                             android:layout_width="0dp"
@@ -831,6 +881,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c20" />
+
                         <ImageView
                             android:id="@+id/c30"
                             android:layout_width="0dp"
@@ -840,6 +891,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c30" />
+
                         <ImageView
                             android:id="@+id/c40"
                             android:layout_width="0dp"
@@ -849,6 +901,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c40" />
+
                         <ImageView
                             android:id="@+id/c50"
                             android:layout_width="0dp"
@@ -858,6 +911,7 @@
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
                             android:tag="c50" />
+
                         <ImageView
                             android:id="@+id/c60"
                             android:layout_width="0dp"
@@ -867,6 +921,7 @@
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
                             android:tag="c60" />
+
                         <ImageView
                             android:id="@+id/c70"
                             android:layout_width="0dp"
@@ -879,6 +934,73 @@
                     </TableRow>
 
                 </TableLayout>
+
+                <LinearLayout
+                    android:id="@+id/lyMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/message_bg"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/tvIntroLevel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:fontFamily="@font/amaranth_regular"
+                        android:shadowColor="@color/white"
+                        android:shadowRadius="8"
+                        android:text="Level :1"
+                        android:textColor="@color/app_color_dark"
+                        android:textSize="70sp" />
+
+                    <TextView
+                        android:id="@+id/tvIntroLive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="40dp"
+                        android:fontFamily="@font/amaranth_regular"
+                        android:shadowColor="@color/white"
+                        android:shadowRadius="8"
+                        android:text="Lives :1"
+                        android:textColor="@color/app_color_dark"
+                        android:textSize="45sp" />
+
+                    <TextView
+                        android:id="@+id/tvAction"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="24dp"
+                        android:background="@drawable/bg_title_top"
+                        android:fontFamily="@font/amaranth_regular"
+                       android:onClick="launchAction"
+                        android:paddingTop="10dp"
+                        android:text="Next LEVEL"
+                        android:textAlignment="center"
+                        android:textColor="@color/app_color_light"
+                        android:textSize="24sp" />
+                    <ImageButton
+                        android:id="@+id/ibtShare"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginBottom="40dp"
+                        android:background="@drawable/bg_title_bottom"
+
+                        android:onClick="launchShareGame"
+                        android:src="@drawable/compartir"
+                        android:visibility="visible"
+                         />
+                </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
 
