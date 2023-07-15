@@ -4,6 +4,7 @@
     android:id="@+id/rlScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -270,7 +271,6 @@
                             android:layout_weight="1"
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
-                            android:src="@drawable/bojackhorse"
                             android:tag="c07" />
 
                         <ImageView
@@ -981,12 +981,13 @@
                         android:layout_marginRight="24dp"
                         android:background="@drawable/bg_title_top"
                         android:fontFamily="@font/amaranth_regular"
-                       android:onClick="launchAction"
+                        android:onClick="launchAction"
                         android:paddingTop="10dp"
                         android:text="Next LEVEL"
                         android:textAlignment="center"
                         android:textColor="@color/app_color_light"
                         android:textSize="24sp" />
+
                     <ImageButton
                         android:id="@+id/ibtShare"
                         android:layout_width="match_parent"
@@ -998,8 +999,7 @@
 
                         android:onClick="launchShareGame"
                         android:src="@drawable/compartir"
-                        android:visibility="visible"
-                         />
+                        android:visibility="visible" />
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
@@ -1012,8 +1012,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="vertical">
-        <!-- Agrega aquí el contenido del LinearLayout de los anuncios -->
-    </LinearLayout>
+        android:orientation="vertical" />
+    <!-- Agrega aquí el contenido del LinearLayout de los anuncios -->
+
 
 </RelativeLayout>
