@@ -499,7 +499,7 @@
                             android:layout_weight="1"
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
-                            android:tag="65" />
+                            android:tag="c65" />
 
                         <ImageView
                             android:id="@+id/c75"
@@ -775,7 +775,7 @@
                             android:layout_weight="1"
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
-                            android:tag="c00" />
+                            android:tag="c01" />
 
                         <ImageView
                             android:id="@+id/c11"
@@ -856,17 +856,17 @@
                             android:id="@+id/c00"
                             android:layout_width="0dp"
                             android:layout_height="43dp"
-                            android:layout_column="1"
+                            android:layout_column="0"
                             android:layout_weight="1"
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
-                            android:tag="c02" />
+                            android:tag="c00" />
 
                         <ImageView
                             android:id="@+id/c10"
                             android:layout_width="0dp"
                             android:layout_height="43dp"
-                            android:layout_column="2"
+                            android:layout_column="1"
                             android:layout_weight="1"
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
@@ -876,7 +876,7 @@
                             android:id="@+id/c20"
                             android:layout_width="0dp"
                             android:layout_height="43dp"
-                            android:layout_column="3"
+                            android:layout_column="2"
                             android:layout_weight="1"
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
@@ -886,7 +886,7 @@
                             android:id="@+id/c30"
                             android:layout_width="0dp"
                             android:layout_height="43dp"
-                            android:layout_column="4"
+                            android:layout_column="3"
                             android:layout_weight="1"
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
@@ -896,7 +896,7 @@
                             android:id="@+id/c40"
                             android:layout_width="0dp"
                             android:layout_height="43dp"
-                            android:layout_column="5"
+                            android:layout_column="4"
                             android:layout_weight="1"
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
@@ -906,7 +906,7 @@
                             android:id="@+id/c50"
                             android:layout_width="0dp"
                             android:layout_height="43dp"
-                            android:layout_column="6"
+                            android:layout_column="5"
                             android:layout_weight="1"
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"
@@ -916,7 +916,7 @@
                             android:id="@+id/c60"
                             android:layout_width="0dp"
                             android:layout_height="43dp"
-                            android:layout_column="7"
+                            android:layout_column="6"
                             android:layout_weight="1"
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
@@ -926,7 +926,7 @@
                             android:id="@+id/c70"
                             android:layout_width="0dp"
                             android:layout_height="43dp"
-                            android:layout_column="0"
+                            android:layout_column="7"
                             android:layout_weight="1"
                             android:background="@color/white_cell"
                             android:onClick="checkChellClick"

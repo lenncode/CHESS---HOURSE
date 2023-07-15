@@ -13,7 +13,7 @@ import androidx.core.content.ContextCompat
 class MainActivity : AppCompatActivity() {
 
     private var cellSelected_x = 0
-    private var cellSelecd_y = 0
+    private var cellSelected_y = 0
 
     private lateinit var board: Array<IntArray>
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,26 +24,61 @@ class MainActivity : AppCompatActivity() {
         setFirstPosition()
     }
 
+    private fun setFirstPosition() {
+
+        val x: Int = (0..7).random()
+        val y: Int = (0..7).random()
+        cellSelected_x = x
+        cellSelected_y = y
+        selectCell(x, y)
+    }
+
     fun checkChellClick(v: View) {
         var name = v.tag.toString()
-        var x= name.subSequence(1,2).toString().toInt()
-        var y= name.subSequence(2,3).toString().toInt()
+        var x = name.subSequence(1, 2).toString().toInt()
+        var y = name.subSequence(2, 3).toString().toInt()
 
-        selectCell(x,y)
+        checkCell(x, y)
+    }
+
+    private fun checkCell(x: Int, y: Int) {
+
+        var dif_x = x - cellSelected_x
+        var dif_y = y - cellSelected_y
+
+        var checkTrue = false
+
+        if (dif_x == 1 && dif_y == 2) checkTrue = true
+        if (dif_x == 1 && dif_y == -2) checkTrue = true
+        if (dif_x == 2 && dif_y == 1) checkTrue = true
+        if (dif_x == 2 && dif_y == -1) checkTrue = true
+        if (dif_x == -1 && dif_y == 2) checkTrue = true
+        if (dif_x == -1 && dif_y == -2) checkTrue = true
+        if (dif_x == -2 && dif_y == 1) checkTrue = true
+        if (dif_x == -2 && dif_y == -1) checkTrue = true
+
+        if (board[x][y] == 1) checkTrue = false
+        if (checkTrue) selectCell(x, y)
     }
 
     private fun resetboard() {
+
+        // 0 esta libre
+        //1 casilla marcada
+        //2 es de un bonus
+        //9 es una opcion del movimiento actual
         board = arrayOf(
-            intArrayOf(0, 0, 0, 0, 0, 0, 0),
-            intArrayOf(0, 0, 0, 0, 0, 0, 0),
-            intArrayOf(0, 0, 0, 0, 0, 0, 0),
-            intArrayOf(0, 0, 0, 0, 0, 0, 0),
-            intArrayOf(0, 0, 0, 0, 0, 0, 0),
-            intArrayOf(0, 0, 0, 0, 0, 0, 0),
-            intArrayOf(0, 0, 0, 0, 0, 0, 0),
-            intArrayOf(0, 0, 0, 0, 0, 0, 0)
+            intArrayOf(0, 0, 0, 0, 0, 0, 0, 0),
+            intArrayOf(0, 0, 0, 0, 0, 0, 0, 0),
+            intArrayOf(0, 0, 0, 0, 0, 0, 0, 0),
+            intArrayOf(0, 0, 0, 0, 0, 0, 0, 0),
+            intArrayOf(0, 0, 0, 0, 0, 0, 0, 0),
+            intArrayOf(0, 0, 0, 0, 0, 0, 0, 0),
+            intArrayOf(0, 0, 0, 0, 0, 0, 0, 0),
+            intArrayOf(0, 0, 0, 0, 0, 0, 0, 0)
 
         )
+
     }
 
     private fun initScreenGame() {
@@ -51,35 +86,20 @@ class MainActivity : AppCompatActivity() {
         hice_message()
     }
 
-    private fun setFirstPosition() {
-        var x = 0
-        var y = 0
-
-        x = (0..7).random()
-        y = (0..7).random()
-        cellSelected_x = 0
-        cellSelecd_y = 0
-        selectCell(x, y)
-    }
 
     private fun selectCell(x: Int, y: Int) {
 
         board[x][y] = 1
-        paintHorseCell(cellSelected_x, cellSelecd_y, "previus_cell")
+        paintHorseCell(cellSelected_x, cellSelected_y, "previus_cell")
 
         cellSelected_x = x
-        cellSelecd_y = y
+        cellSelected_y = y
 
         paintHorseCell(x, y, "selected_cell")
     }
 
     private fun paintHorseCell(x: Int, y: Int, color: String) {
-        var iv: ImageView = findViewById(
-            resources.getIdentifier(
-                "c$x$y", "id",
-                packageName
-            )
-        )
+        var iv: ImageView = findViewById(resources.getIdentifier("c$x$y", "id", packageName))
         iv.setBackgroundColor(
             ContextCompat.getColor(
                 this,
@@ -122,6 +142,7 @@ class MainActivity : AppCompatActivity() {
                     width_cell,
                     getResources().getDisplayMetrics()
                 ).toInt()
+
                 iv.setLayoutParams(TableRow.LayoutParams(width, height))
             }
         }
