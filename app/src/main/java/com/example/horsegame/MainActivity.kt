@@ -15,6 +15,9 @@ class MainActivity : AppCompatActivity() {
 
     private var cellSelected_x = 0
     private var cellSelected_y = 0
+
+    private var moves = 64
+    private var movesRequired = 4
     private var options = 0
     private var nameColorBlack = "black_cell"
     private var nameColorWhite = "white_cell"
@@ -45,34 +48,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkCell(x: Int, y: Int) {
-        options = 0
-
         val dif_x = x - cellSelected_x
-
         val dif_y = y - cellSelected_y
 
-        var checkTrue = false
+        val validMoves = setOf(
+            Pair(1, 2), Pair(1, -2), Pair(2, 1), Pair(2, -1),
+            Pair(-1, 2), Pair(-1, -2), Pair(-2, 1), Pair(-2, -1)
+        )
 
-        if (dif_x == 1 && dif_y == 2) checkTrue = true
-
-        if (dif_x == 1 && dif_y == -2) checkTrue = true
-
-        if (dif_x == 2 && dif_y == 1) checkTrue = true
-
-        if (dif_x == 2 && dif_y == -1) checkTrue = true
-
-        if (dif_x == -1 && dif_y == 2) checkTrue = true
-
-        if (dif_x == -1 && dif_y == -2) checkTrue = true
-
-        if (dif_x == -2 && dif_y == 1) checkTrue = true
-
-        if (dif_x == -2 && dif_y == -1) checkTrue = true
-
-        if (board[x][y] == 1) checkTrue = false
-
-        if (checkTrue) selectCell(x, y)
-
+        if (Pair(dif_x, dif_y) in validMoves && board[x][y] != 1) {
+            selectCell(x, y)
+        }
     }
 
     private fun resetboard() {
@@ -102,6 +88,9 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun selectCell(x: Int, y: Int) {
+        moves--
+        var ivMovesData = findViewById<TextView>(R.id.tvMovesData)
+        ivMovesData.text = moves.toString()
 
         board[x][y] = 1
         paintHorseCell(cellSelected_x, cellSelected_y, "previus_cell")
@@ -113,6 +102,35 @@ class MainActivity : AppCompatActivity() {
         paintHorseCell(x, y, "selected_cell")
 
         checkOption(x, y)
+        if (moves > 0) {
+            checkNewBonus()
+            //  checkGameOver(x,y)
+        } else {
+            //    checkSuccesFulEnd
+        }
+    }
+
+    private fun checkNewBonus() {
+        if (moves % movesRequired == 0) {
+            var bonusCell_x = 0
+            var bonusCell_y = 0
+
+            var bonusCell = false
+            while (bonusCell == false) {
+                bonusCell_x = (0..7).random()
+                bonusCell_y = (0..7).random()
+
+                if (board[bonusCell_x][bonusCell_y] == 0)bonusCell = true
+
+            }
+            board[bonusCell_x][bonusCell_y] = 2
+            paintBonusCell(bonusCell_x,bonusCell_y)
+        }
+    }
+
+    private fun paintBonusCell(x: Int, y: Int) {
+        var iv:ImageView = findViewById<ImageView>(resources.getIdentifier("c$x$y","id",packageName))
+        iv.setImageResource(R.drawable.alcohol_verde)
     }
 
     private fun clearOptions() {
@@ -181,9 +199,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun paintOptions(x: Int, y: Int) {
-        var iv: ImageView = findViewById(resources.getIdentifier("c$x$y", "id", packageName))
+        val iv: ImageView = findViewById(resources.getIdentifier("c$x$y", "id", packageName))
         if (checkColorCell(x, y) == "black") iv.setBackgroundResource(R.drawable.option_black)
-        else iv.setBackgroundResource(R.drawable.options_white)
+        else iv.setBackgroundResource(R.drawable.option_white)
     }
 
     private fun checkColorCell(x: Int, y: Int): String {
