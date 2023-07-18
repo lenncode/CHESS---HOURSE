@@ -233,20 +233,37 @@
 
                         android:translationY="-8dp" />
 
-                    <TextView
-                        android:id="@+id/tvOptionsData"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:background="@drawable/bg_data_bottom"
-                        android:fontFamily="@font/amaranth_bold"
-                        android:paddingBottom="10dp"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textColor="@color/app_color_light"
-                        android:textSize="18sp"
-                        android:translationY="-8dp" />
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:translationY="-8dp">
 
+                        <TextView
+                            android:id="@+id/tvOptionsData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/amaranth_bold"
+                            android:paddingBottom="10dp"
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textColor="@color/app_color_light"
+                            android:textSize="18sp" />
 
+                        <TextView
+                            android:id="@+id/tvBonusData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_data_bottom"
+                            android:fontFamily="@font/amaranth_bold"
+                            android:paddingBottom="10dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/app_color_light"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -522,9 +539,9 @@
                             android:layout_height="43dp"
                             android:layout_column="1"
                             android:layout_weight="1"
-                            android:src="@drawable/dotted"
                             android:background="@color/black_cell"
                             android:onClick="checkChellClick"
+                            android:src="@drawable/dotted"
                             android:tag="c04" />
 
                         <ImageView

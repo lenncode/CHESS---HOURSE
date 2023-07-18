@@ -13,12 +13,17 @@ import androidx.core.content.ContextCompat
 
 class MainActivity : AppCompatActivity() {
 
+    private var widht_bonus = 0
     private var cellSelected_x = 0
     private var cellSelected_y = 0
+    private var levelMoves = 64
 
     private var moves = 64
     private var movesRequired = 4
     private var options = 0
+    private var bonus = 0
+
+
     private var nameColorBlack = "black_cell"
     private var nameColorWhite = "white_cell"
     private lateinit var board: Array<IntArray>
@@ -45,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         val y = name.subSequence(2, 3).toString().toInt()
 
         checkCell(x, y)
+        board
     }
 
     private fun checkCell(x: Int, y: Int) {
@@ -89,8 +95,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun selectCell(x: Int, y: Int) {
         moves--
-        var ivMovesData = findViewById<TextView>(R.id.tvMovesData)
-        ivMovesData.text = moves.toString()
+        var tvMovesData = findViewById<TextView>(R.id.tvMovesData)
+        tvMovesData.text = moves.toString()
+
+        growProgressBonus()
+        if (board[x][y] == 2) {
+            bonus++
+            var tvBonusData = findViewById<TextView>(R.id.tvBonusData)
+            tvBonusData.text = " + $bonus "
+        }
+
 
         board[x][y] = 1
         paintHorseCell(cellSelected_x, cellSelected_y, "previus_cell")
@@ -110,6 +124,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun growProgressBonus() {
+        var moves_done = levelMoves - moves
+        var bonus_done = moves_done / movesRequired
+        var moves_rest = movesRequired * (bonus_done)
+        var bonus_grow = moves_done - moves_rest
+        var v = findViewById<View>(R.id.vNewBonus)
+        var widthBonus = ((widht_bonus / movesRequired )* bonus_grow).toFloat()
+
+        var height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,8f,getResources().getDisplayMetrics()).toInt()
+        var width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,widthBonus,getResources().getDisplayMetrics()).toInt()
+        v.setLayoutParams(TableRow.LayoutParams(width,height))
+
+    }
+
     private fun checkNewBonus() {
         if (moves % movesRequired == 0) {
             var bonusCell_x = 0
@@ -120,16 +148,17 @@ class MainActivity : AppCompatActivity() {
                 bonusCell_x = (0..7).random()
                 bonusCell_y = (0..7).random()
 
-                if (board[bonusCell_x][bonusCell_y] == 0)bonusCell = true
+                if (board[bonusCell_x][bonusCell_y] == 0) bonusCell = true
 
             }
             board[bonusCell_x][bonusCell_y] = 2
-            paintBonusCell(bonusCell_x,bonusCell_y)
+            paintBonusCell(bonusCell_x, bonusCell_y)
         }
     }
 
     private fun paintBonusCell(x: Int, y: Int) {
-        var iv:ImageView = findViewById<ImageView>(resources.getIdentifier("c$x$y","id",packageName))
+        var iv: ImageView =
+            findViewById<ImageView>(resources.getIdentifier("c$x$y", "id", packageName))
         iv.setImageResource(R.drawable.alcohol_verde)
     }
 
@@ -178,7 +207,7 @@ class MainActivity : AppCompatActivity() {
         checkMove(x, y, -2, 1)
         checkMove(x, y, -1, -2)
         checkMove(x, y, -2, -1)
-        var tvOptionsData = findViewById<TextView>(R.id.tvOptionsData)
+        val tvOptionsData = findViewById<TextView>(R.id.tvOptionsData)
         tvOptionsData.text = options.toString()
     }
 
@@ -192,7 +221,7 @@ class MainActivity : AppCompatActivity() {
             if (board[option_x][option_y] == 0 || board[option_x][option_y] == 2) {
                 options++
                 paintOptions(option_x, option_y)
-                board[option_x][option_y] = 9
+                if (board[option_x][option_y] == 0) board[option_x][option_y] = 9
             }
         }
 
@@ -240,7 +269,7 @@ class MainActivity : AppCompatActivity() {
         var lateralMarginDP = 0
         val width_cell = (width_dp - lateralMarginDP) / 8
         val height_cell = width_cell
-
+        widht_bonus = 2 * width_cell.toInt()
         for (i in 0..7) {
             for (j in 0..7) {
                 iv = findViewById(
