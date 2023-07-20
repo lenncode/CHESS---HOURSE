@@ -3,6 +3,7 @@ package com.example.horsegame
 import android.graphics.Point
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.BoringLayout
 import android.util.TypedValue
 import android.view.View
 import android.widget.ImageView
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private var options = 0
     private var bonus = 0
 
-
+    private var checkMovement = true
     private var nameColorBlack = "black_cell"
     private var nameColorWhite = "white_cell"
     private lateinit var board: Array<IntArray>
@@ -54,17 +55,31 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkCell(x: Int, y: Int) {
-        val dif_x = x - cellSelected_x
-        val dif_y = y - cellSelected_y
+        var checkTrue = true
+        if (checkMovement) {
+            val dif_x = x - cellSelected_x
+            val dif_y = y - cellSelected_y
 
-        val validMoves = setOf(
-            Pair(1, 2), Pair(1, -2), Pair(2, 1), Pair(2, -1),
-            Pair(-1, 2), Pair(-1, -2), Pair(-2, 1), Pair(-2, -1)
-        )
-
-        if (Pair(dif_x, dif_y) in validMoves && board[x][y] != 1) {
-            selectCell(x, y)
+            checkTrue = false
+            if (dif_x == 1 && dif_y == 2) checkTrue = true
+            if (dif_x == 1 && dif_y == -2) checkTrue = true
+            if (dif_x == 2 && dif_y == 1) checkTrue = true
+            if (dif_x == 2 && dif_y == -1) checkTrue = true
+            if (dif_x == -1 && dif_y == 2) checkTrue = true
+            if (dif_x == -1 && dif_y == -2) checkTrue = true
+            if (dif_x == -2 && dif_y == 1) checkTrue = true
+            if (dif_x == -2 && dif_y == -1) checkTrue = true
+        } else {
+            if (board[x][y] != 1) {
+                bonus--
+                var tvBonusData = findViewById<TextView>(R.id.tvBonusData)
+                tvBonusData.text = "+ $bonus"
+                if (bonus == 0) tvBonusData.text = "0"
+            }
         }
+        if (board[x][y] == 1) checkTrue = false
+
+        if (checkTrue) selectCell(x, y)
     }
 
     private fun resetboard() {
@@ -95,17 +110,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun selectCell(x: Int, y: Int) {
         moves--
-        var tvMovesData = findViewById<TextView>(R.id.tvMovesData)
+        val tvMovesData = findViewById<TextView>(R.id.tvMovesData)
         tvMovesData.text = moves.toString()
 
         growProgressBonus()
         if (board[x][y] == 2) {
             bonus++
-            var tvBonusData = findViewById<TextView>(R.id.tvBonusData)
+            val tvBonusData = findViewById<TextView>(R.id.tvBonusData)
             tvBonusData.text = " + $bonus "
         }
-
-
         board[x][y] = 1
         paintHorseCell(cellSelected_x, cellSelected_y, "previus_cell")
 
@@ -114,27 +127,69 @@ class MainActivity : AppCompatActivity() {
 
         clearOptions()
         paintHorseCell(x, y, "selected_cell")
-
+        checkMovement = true
         checkOption(x, y)
         if (moves > 0) {
             checkNewBonus()
-            //  checkGameOver(x,y)
-        } else {
-            //    checkSuccesFulEnd
-        }
+            checkGameOver()
+        } else showMessage("YOU WIN", "Next Level", false)
+
     }
 
-    private fun growProgressBonus() {
-        var moves_done = levelMoves - moves
-        var bonus_done = moves_done / movesRequired
-        var moves_rest = movesRequired * (bonus_done)
-        var bonus_grow = moves_done - moves_rest
-        var v = findViewById<View>(R.id.vNewBonus)
-        var widthBonus = ((widht_bonus / movesRequired )* bonus_grow).toFloat()
+    private fun checkGameOver() {
+        if (options == 0) {
+            if (options > 0) {
+                checkMovement = false
+                paintAllOptions()
+            }
+            else showMessage("GAME OVER", "Try Again!", true)
+        }
 
-        var height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,8f,getResources().getDisplayMetrics()).toInt()
-        var width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,widthBonus,getResources().getDisplayMetrics()).toInt()
-        v.setLayoutParams(TableRow.LayoutParams(width,height))
+    }
+
+
+
+    private fun showMessage(title: String, action: String, gameOver: Boolean) {
+        val lyMessage = findViewById<LinearLayout>(R.id.lyMessage)
+        lyMessage.visibility = View.VISIBLE
+
+        val tvTitleMessage = findViewById<TextView>(R.id.tvTitleMessage)
+        tvTitleMessage.text = title
+
+        val tvTimeData = findViewById<TextView>(R.id.tvTimeData)
+        var score: String = ""
+        if (gameOver) {
+            score = "Score : " + (levelMoves - moves) + "/" + levelMoves
+        } else {
+            score = tvTimeData.text.toString()
+        }
+        val tvScoreMessage = findViewById<TextView>(R.id.tvScoreMessage)
+        tvScoreMessage.text = score
+        val tvAction = findViewById<TextView>(R.id.tvAction)
+        tvAction.text = action
+
+    }
+
+
+    private fun growProgressBonus() {
+        val moves_done = levelMoves - moves
+        val bonus_done = moves_done / movesRequired
+        val moves_rest = movesRequired * (bonus_done)
+        val bonus_grow = moves_done - moves_rest
+        val v = findViewById<View>(R.id.vNewBonus)
+        val widthBonus = ((widht_bonus / movesRequired) * bonus_grow).toFloat()
+
+        val height = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            8f,
+            getResources().getDisplayMetrics()
+        ).toInt()
+        val width = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            widthBonus,
+            getResources().getDisplayMetrics()
+        ).toInt()
+        v.setLayoutParams(TableRow.LayoutParams(width, height))
 
     }
 
@@ -157,11 +212,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun paintBonusCell(x: Int, y: Int) {
-        var iv: ImageView =
+        val iv: ImageView =
             findViewById<ImageView>(resources.getIdentifier("c$x$y", "id", packageName))
         iv.setImageResource(R.drawable.alcohol_verde)
     }
-
+    private fun paintAllOptions() {
+        for (i in 0..7) {
+            for (j in 0..7) {
+                if (board[i][j] != 1) paintOptions(i, j)
+                if (board[i][j] == 0) board[i][j] = 9
+            }
+        }
+    }
     private fun clearOptions() {
         for (i in 0..7) {
             for (j in 0..7) {
@@ -174,7 +236,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun clearOption(x: Int, y: Int) {
-        var iv: ImageView = findViewById(resources.getIdentifier("c$x$y", "id", packageName))
+        val iv: ImageView = findViewById(resources.getIdentifier("c$x$y", "id", packageName))
         if (checkColorCell(x, y) == "black")
             iv.setBackgroundColor(
                 ContextCompat.getColor(
@@ -214,8 +276,8 @@ class MainActivity : AppCompatActivity() {
     private fun checkMove(x: Int, y: Int, mov_x: Int, mov_y: Int) {
 
 
-        var option_x = x + mov_x
-        var option_y = y + mov_y
+        val option_x = x + mov_x
+        val option_y = y + mov_y
 
         if (option_x < 8 && option_y < 8 && option_x >= 0 && option_y >= 0) {
             if (board[option_x][option_y] == 0 || board[option_x][option_y] == 2) {
@@ -266,7 +328,7 @@ class MainActivity : AppCompatActivity() {
         val width = size.x
         val width_dp = (width / getResources().getDisplayMetrics().density)
 
-        var lateralMarginDP = 0
+        val lateralMarginDP = 0
         val width_cell = (width_dp - lateralMarginDP) / 8
         val height_cell = width_cell
         widht_bonus = 2 * width_cell.toInt()
@@ -279,13 +341,13 @@ class MainActivity : AppCompatActivity() {
                     )
                 )
 
-                var height = TypedValue.applyDimension(
+                val height = TypedValue.applyDimension(
                     TypedValue.COMPLEX_UNIT_DIP,
                     height_cell,
                     getResources().getDisplayMetrics()
                 ).toInt()
 
-                var width = TypedValue.applyDimension(
+                val width = TypedValue.applyDimension(
                     TypedValue.COMPLEX_UNIT_DIP,
                     width_cell,
                     getResources().getDisplayMetrics()
@@ -297,7 +359,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun hice_message() {
-        var lyMessage = findViewById<LinearLayout>(R.id.lyMessage)
+        val lyMessage = findViewById<LinearLayout>(R.id.lyMessage)
         lyMessage.visibility = View.INVISIBLE
     }
 
